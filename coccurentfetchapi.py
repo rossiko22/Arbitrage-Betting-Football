@@ -3,7 +3,7 @@ import json
 import concurrent.futures
 import time
 
-with open("/home/marko/Desktop/arbitragepy/leagues/leagues.txt", "r") as file:
+with open("leagues/leagues.txt", "r") as file:
     content = file.read()
 
 API_KEY = "place_api_here"
@@ -12,8 +12,8 @@ MARKET = "h2h"
 SPORT = json.loads(content)
 ODDS_FORMAT = "decimal"
 DATE_FORMAT = "iso"
-COMMENCE_FROM = "2024-09-20T00:00:00Z"
-COMMENCE_TO = "2024-10-02T00:00:00Z"
+COMMENCE_FROM = "2024-09-20T00:00:00Z" #Change this accordingly
+COMMENCE_TO = "2024-10-02T00:00:00Z" #Change this accordingly
 
 
 def fetch_data(sport):
@@ -23,7 +23,7 @@ def fetch_data(sport):
     return sport, response.json()
 
 def save_data(sport, data):
-    file_path = f"/home/marko/Desktop/arbitragepy/datatxt/{sport}.txt"
+    file_path = f"datatxt/{sport}.txt"
     with open(file_path, "w") as file:
         json.dump(data, file, indent=4)
 

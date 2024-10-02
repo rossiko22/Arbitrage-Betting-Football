@@ -2,7 +2,7 @@ import pandas as pd
 import json
 
 # Load the list of Excel files
-with open("/home/marko/Desktop/arbitragepy/leagues/leagues.txt", "r") as file:
+with open("leagues/leagues.txt", "r") as file:
     file_content = file.read()
 
 text_files = json.loads(file_content)
@@ -11,7 +11,7 @@ arbitrage_values = []
 
 # Process each Excel file
 for i in range(len(text_files)):
-    file_path = f'/home/marko/Desktop/arbitragepy/dataxlsx/{text_files[i]}.xlsx'  # Replace with your file path
+    file_path = f'dataxlsx/{text_files[i]}.xlsx'  # Replace with your file path
     excel_data = pd.ExcelFile(file_path)
 
     # Iterate through each sheet
@@ -38,7 +38,7 @@ for i in range(len(text_files)):
 sorted_lst = sorted(arbitrage, key=lambda x: float(x.split()[0]), reverse=False)
 
 # Save the sorted list to a text file
-output_file_path = "/home/marko/Desktop/arbitragepy/arbitrage_results/arbarbitrage_opportunities.txt"
+output_file_path = "arbitrage_results/arbarbitrage_opportunities.txt"
 with open(output_file_path, "w") as file:
     for item in sorted_lst:
         file.write(item + "\n")
