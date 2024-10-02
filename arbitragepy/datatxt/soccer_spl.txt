@@ -1,0 +1,5 @@
+{
+    "message": "Requests are too frequent",
+    "error_code": "EXCEEDED_FREQ_LIMIT",
+    "details_url": "https://the-odds-api.com/liveapi/guides/v4/api-error-codes.html#exceeded-freq-limit"
+}
